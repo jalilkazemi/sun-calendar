@@ -99,3 +99,19 @@ ShadowPosImplicit(minTilt, 40)
 ShadowPosImplicit(minTilt, 20)
 ShadowPosImplicit(minTilt, 180-40)
 ShadowPosImplicit(maxTilt, 180-20)
+
+##### NearestShadowPos
+NearestShadowPos <- function(xNoisy, yNoisy, tilt, alt) {
+  DegreeToRadiant <- function(x) x/180*pi
+  gma <- cos(DegreeToRadiant(tilt))
+  lmda <- cos(DegreeToRadiant(alt))
+  A <- gma / sqrt(1-lmda^2)
+  B <- lmda / sqrt(1-lmda^2)
+  
+  y + A*sqrt(x^2+y^2+1) - B
+}
+
+
+
+
+
